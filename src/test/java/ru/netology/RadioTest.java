@@ -33,17 +33,41 @@ class RadioTest {
     }
 
     @Test
-    public void setMinVolume () {
+    public void setMaxVolume() {
         Radio radio = new Radio();
-        radio.setMinVolume (0);
+        radio.setCurrentVolume(10);
+        int expected = 10;
+        assertEquals(expected, radio.getCurrentVolume());
+    }
+
+    @Test
+    public void setMinVolume() {
+        Radio radio = new Radio();
+        radio.setMinVolume(0);
         int expected = 0;
         assertEquals(expected, radio.getCurrentVolume());
     }
 
     @Test
-    public void setMinStation () {
+    public void setAboveMaxVolume() {
         Radio radio = new Radio();
-        radio.setMinStation (0);
+        radio.setCurrentVolume(11);
+        int expected = 0;
+        assertEquals(expected, radio.getCurrentVolume());
+    }
+
+    @Test
+    public void setAboveMinVolume() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(-1);
+        int expected = 0;
+        assertEquals(expected, radio.getCurrentVolume());
+    }
+
+    @Test
+    public void setMinStation() {
+        Radio radio = new Radio();
+        radio.setMinStation(0);
         int expected = 0;
         assertEquals(expected, radio.getCurrentStation());
     }
@@ -58,10 +82,10 @@ class RadioTest {
     }
 
     @Test
-    public void setNextRoundStation () {
+    public void setNextRoundStation() {
         Radio radio = new Radio();
         radio.setCurrentStation(9);
-        radio.setNextStation ();
+        radio.setNextStation();
         int expected = 0;
         assertEquals(expected, radio.getCurrentStation());
     }
@@ -84,6 +108,20 @@ class RadioTest {
         assertEquals(expected, radio.getCurrentStation());
     }
 
+    @Test
+    public void setAboveMaxStation() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(10);
+        int expected = 0;
+        assertEquals(expected, radio.getCurrentStation());
+    }
 
+    @Test
+    public void setAboveMinStation() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(-1);
+        int expected = 0;
+        assertEquals(expected, radio.getCurrentStation());
+    }
 
 }
