@@ -56,20 +56,17 @@ public class Radio {
         if (currentStation == maxStation) {
             this.currentStation = minStation;
             return;
-        } else {
-            this.currentStation = currentStation + 1;
-            return;
         }
+        this.currentStation = currentStation + 1;
     }
 
     public void setPrevStation() {
         if (currentStation == minStation) {
             this.currentStation = maxStation;
             return;
-        } else {
-            this.currentStation = currentStation - 1;
-            return;
         }
+        this.currentStation = currentStation - 1;
+
     }
 
     //установка звука
@@ -85,19 +82,17 @@ public class Radio {
 
     //установка звука
     public void setIncreaseVolume() {
-        if (currentVolume++ > maxVolume) {
+        if (currentVolume == maxVolume) {
             return;
-        } else {
-            this.currentVolume = currentVolume + 1;
         }
+            this.currentVolume = currentVolume + 1;
     }
 
     public void setDecreaseVolume() {
-        if (currentVolume-- < minVolume) {
+        if (currentVolume == minVolume) {
             return;
-        } else {
-            this.currentVolume = minVolume - 1;
         }
+            this.currentVolume = currentVolume - 1;
     }
 
     public int getCurrentStation() {
