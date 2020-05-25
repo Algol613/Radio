@@ -1,18 +1,19 @@
-package ru.netology;
+package ru.netology.domain;
 
 public class Radio {
     private String name;
-    private int minStation = 0;
-    private int maxStation = 9;
+    private int minStation;
+    private int maxStation;
     private int currentVolume;
     private int currentStation;
-    private int minVolume = 0;
-    private int maxVolume = 10;
+    private int minVolume;
+    private int maxVolume;
     private boolean on;
+    private int countStation;
 
-    //set perametrs
-    public void setName(String name) {
-        this.name = name;
+
+    public Radio() {
+        this.maxStation = countStation - 1;
     }
 
     //включение или отключение radio
@@ -41,7 +42,7 @@ public class Radio {
     }
 
     //установка рабочей станции
-    public void setCurrentStation(int currentStation) {
+    public void setCurrentStation() {
         if (currentStation > maxStation) {
             return;
         }
@@ -85,14 +86,14 @@ public class Radio {
         if (currentVolume == maxVolume) {
             return;
         }
-            this.currentVolume = currentVolume + 1;
+        this.currentVolume = currentVolume + 1;
     }
 
     public void setDecreaseVolume() {
         if (currentVolume == minVolume) {
             return;
         }
-            this.currentVolume = currentVolume - 1;
+        this.currentVolume = currentVolume - 1;
     }
 
     public int getCurrentStation() {
@@ -101,6 +102,20 @@ public class Radio {
 
     public int getCurrentVolume() {
         return currentVolume;
+    }
+    public int getMaxStation() {
+        return maxStation;
+    }
+
+    public int getMaxVolume() {
+        return maxVolume;
+    }
+
+    public Radio(int minStation, int maxStation, int minVolume, int maxVolume) {
+        this.minStation = minStation;
+        this.maxStation = maxStation;
+        this.minVolume = minVolume;
+        this.maxVolume = maxVolume;
     }
 
 }
