@@ -1,5 +1,11 @@
 package ru.netology.domain;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@Data
+
 public class Radio {
     private String name;
     private int minStation;
@@ -12,110 +18,87 @@ public class Radio {
     private int countStation;
 
 
-    public Radio() {
-        this.maxStation = countStation - 1;
-    }
-
-    //включение или отключение radio
-    public void setOn(boolean on) {
-        this.on = on;
-    }
-
-    //максимальная устанавливаемая громкость
-    public void setMaxVolume(int maxVolume) {
-        this.maxVolume = maxVolume;
-    }
-
-    //минимальная устанавливаемая громкость
-    public void setMinVolume(int minVolume) {
-        this.minVolume = minVolume;
-    }
-
-    //максимальная устанавливаемая станция
-    public void setMaxStation(int maxStation) {
+    public Radio(String name, int minStation, int maxStation, int currentVolume, int currentStation, int minVolume, int maxVolume, boolean on, int countStation) {
+        this.name = name;
+        this.minStation = minStation;
         this.maxStation = maxStation;
+        this.currentVolume = currentVolume;
+        this.currentStation = currentStation;
+        this.minVolume = minVolume;
+        this.maxVolume = maxVolume;
+        this.on = on;
+        this.countStation = countStation;
     }
 
-    //минимальная устанавливаемая станция
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getMinStation() {
+        return minStation;
+    }
+
     public void setMinStation(int minStation) {
         this.minStation = minStation;
     }
 
-    //установка рабочей станции
-    public void setCurrentStation() {
-        if (currentStation > maxStation) {
-            return;
-        }
-        if (currentStation < minStation) {
-            return;
-        }
-        this.currentStation = currentStation;
+    public int getMaxStation() {
+        return maxStation;
     }
 
-    //установка следующей станции
-    public void setNextStation() {
-        if (currentStation == maxStation) {
-            this.currentStation = minStation;
-            return;
-        }
-        this.currentStation = currentStation + 1;
+    public void setMaxStation(int maxStation) {
+        this.maxStation = maxStation;
     }
 
-    public void setPrevStation() {
-        if (currentStation == minStation) {
-            this.currentStation = maxStation;
-            return;
-        }
-        this.currentStation = currentStation - 1;
-
+    public int getCurrentVolume() {
+        return currentVolume;
     }
 
-    //установка звука
     public void setCurrentVolume(int currentVolume) {
-        if (currentVolume > maxVolume) {
-            return;
-        }
-        if (currentVolume < minVolume) {
-            return;
-        }
         this.currentVolume = currentVolume;
-    }
-
-    //установка звука
-    public void setIncreaseVolume() {
-        if (currentVolume == maxVolume) {
-            return;
-        }
-        this.currentVolume = currentVolume + 1;
-    }
-
-    public void setDecreaseVolume() {
-        if (currentVolume == minVolume) {
-            return;
-        }
-        this.currentVolume = currentVolume - 1;
     }
 
     public int getCurrentStation() {
         return currentStation;
     }
 
-    public int getCurrentVolume() {
-        return currentVolume;
+    public void setCurrentStation(int currentStation) {
+        this.currentStation = currentStation;
     }
-    public int getMaxStation() {
-        return maxStation;
+
+    public int getMinVolume() {
+        return minVolume;
+    }
+
+    public void setMinVolume(int minVolume) {
+        this.minVolume = minVolume;
     }
 
     public int getMaxVolume() {
         return maxVolume;
     }
 
-    public Radio(int minStation, int maxStation, int minVolume, int maxVolume) {
-        this.minStation = minStation;
-        this.maxStation = maxStation;
-        this.minVolume = minVolume;
+    public void setMaxVolume(int maxVolume) {
         this.maxVolume = maxVolume;
     }
 
+    public boolean isOn() {
+        return on;
+    }
+
+    public void setOn(boolean on) {
+        this.on = on;
+    }
+
+    public int getCountStation() {
+        return countStation;
+    }
+
+    public void setCountStation(int countStation) {
+        this.countStation = countStation;
+    }
 }
