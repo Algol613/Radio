@@ -17,6 +17,10 @@ public class Radio {
     private boolean on;
     private int countStation;
 
+    public Radio(int i, int i1, int i2, int i3) {
+
+    }
+
     public String getName() {
         return name;
     }
@@ -87,5 +91,8 @@ public class Radio {
 
     public void setCountStation(int countStation) {
         this.countStation = countStation;
+    }
+
+    public void setNextStation() {
     }
 }
