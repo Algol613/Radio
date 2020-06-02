@@ -109,7 +109,11 @@ class RadioTest {
 
     {
         Radio radio2 = new Radio();
+<<<<<<< HEAD
         radio2.setCurrentStation(7);
+=======
+        radio2.setCurrentStation();
+>>>>>>> flexible
         radio2.setNextStation();
         int expected = 8;
         assertEquals(expected, radio2.getCurrentStation());
