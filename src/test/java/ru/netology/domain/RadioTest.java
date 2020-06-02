@@ -2,8 +2,11 @@ package ru.netology.domain;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+abstract class RadioTest {
+    @Test
+    public void shouldCreate() {
 
+<<<<<<< HEAD
 class RadioTest {
     private Radio radio;
 
@@ -178,3 +181,8 @@ class RadioTest {
         assertEquals(expected, radio2.getCurrentStation());
     }
 }
+=======
+        Radio radio = new Radio();
+    }
+}
+>>>>>>> a76c20234ef97a8e26a01e49f201d211c98f85f5
