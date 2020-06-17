@@ -1,14 +1,6 @@
 package ru.netology.domain;
 
-<<<<<<< HEAD
-import lombok.AllArgsConstructor;
-import lombok.Data;
 
-@Data
-@AllArgsConstructor
-
-
->>>>>>> a76c20234ef97a8e26a01e49f201d211c98f85f5
 
 public class Radio {
     private String name;
@@ -23,7 +15,7 @@ public class Radio {
 
     public Radio(int i, int i1, int i2, int i3) {
 
-<<<<<<< HEAD
+
     }
 
 }
